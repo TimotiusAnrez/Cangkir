@@ -26,7 +26,7 @@ public class Register {
         BorderPane mainLayout = new BorderPane();
 
         Bar menuBar = new Bar();
-        mainLayout.setTop(menuBar.viewAdmin());
+        mainLayout.setTop(menuBar.initalMenu());
       
         HBox parent2 = new HBox();
         VBox kakek = new VBox();

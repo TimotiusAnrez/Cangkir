@@ -1,10 +1,36 @@
 package View;
 
+import Util.Router;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.stage.Stage;
 
 public class Bar {
+
+    Router router = Router.getRouter(new Stage());
+
+
+    public MenuBar initalMenu(){
+        MenuBar menuBar = new MenuBar();
+        Menu page = new Menu("Page");
+        MenuItem login = new MenuItem("Login");
+        MenuItem register = new MenuItem("Register");
+
+        page.getItems().addAll(login, register);
+        menuBar.getMenus().addAll(page);
+
+        login.setOnAction(e -> {
+            router.displayLogin();
+        });
+
+        register.setOnAction(e -> {
+            router.displayRegister();
+        });
+
+        return menuBar;
+    }
+
 
     public MenuBar viewUser() {
 

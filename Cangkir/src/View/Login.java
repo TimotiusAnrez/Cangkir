@@ -1,5 +1,6 @@
 package View;
 
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -15,12 +16,15 @@ public class Login {
     public Scene view() {
 
         BorderPane mainLayout = new BorderPane();
+
+
         Bar mainMenu = new Bar();
 
-        mainLayout.setTop(mainMenu.viewUser());
+        mainLayout.setTop(mainMenu.initalMenu());
 
 
         VBox parent = new VBox();
+        parent.setPadding(new Insets(20,20,20,20));
 
         Text text = new Text();
         Label emailLabel = new Label("Login");
@@ -33,7 +37,7 @@ public class Login {
         
         mainLayout.setCenter(parent);
     
-        scene = new Scene(mainLayout, 880, 720);
+        scene = new Scene(mainLayout, 1080, 720);
 
         return scene;
         

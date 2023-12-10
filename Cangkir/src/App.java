@@ -1,3 +1,4 @@
+import Util.Router;
 import View.Login;
 import View.Register;
 import javafx.application.Application;
@@ -12,14 +13,8 @@ public class App extends Application{
     @Override
     public void start(Stage stage) throws Exception {
 
-        Login loginScene = new Login();
-        stage.setScene(loginScene.view());
-        
+        Router router = Router.getRouter(stage);
 
-
-        Register RegisterScene = new Register();
-        stage.setScene(RegisterScene.view());
-
-        stage.show();
+        router.initiate();
     }
 }
