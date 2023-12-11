@@ -1,8 +1,11 @@
 package View;
 
+import Util.Router;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
@@ -12,6 +15,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class Register {
 
@@ -19,15 +23,30 @@ public class Register {
 
     Scene scene;
 
+
+    Hyperlink link;
+
+    Hyperlink getHyperlink(){
+        Hyperlink toLogin = new Hyperlink("Already have an account? Click here to login!");
+        toLogin.setOnAction(e -> {
+            Router router = Router.getRouter(new Stage());
+
+            router.displayLogin();
+        });
+
+        return toLogin;
+    }
+
     public Scene view(){
 
         scene = new Scene(new Group(), 720, 480);
 
         BorderPane mainLayout = new BorderPane();
+        Hyperlink link = getHyperlink();
 
-        Bar menuBar = new Bar();
-        mainLayout.setTop(menuBar.initalMenu());
-      
+        mainLayout.setBottom(link);
+        mainLayout.setAlignment(link, Pos.CENTER);
+
         HBox parent2 = new HBox();
         VBox kakek = new VBox();
 
